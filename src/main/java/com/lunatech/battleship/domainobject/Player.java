@@ -12,6 +12,14 @@ public class Player
     @GeneratedValue
     private Long id;
 
+    private String userId;
+
+    private String fullname;
+
+    private Board board;
+
+    private Boolean myTurn;
+
 
     public Long getId()
     {
@@ -23,4 +31,53 @@ public class Player
     {
         this.id = id;
     }
+
+
+    public String getUserId()
+    {
+        return this.userId;
+    }
+
+
+    public void setUserId(String userId)
+    {
+        this.userId = userId;
+    }
+
+
+    public String getFullname()
+    {
+        return this.fullname;
+    }
+
+
+    public void setFullname(String fullname)
+    {
+        this.fullname = fullname;
+    }
+
+
+    public Board getBoard()
+    {
+        return this.board;
+    }
+
+
+    public void setBoard(Board board)
+    {
+        this.board = board;
+    }
+
+
+    public Boolean getMyTurn()
+    {
+        return this.myTurn;
+    }
+
+
+    public void setMyTurn(Boolean myTurn)
+    {
+        this.myTurn = myTurn;
+    }
+
 }

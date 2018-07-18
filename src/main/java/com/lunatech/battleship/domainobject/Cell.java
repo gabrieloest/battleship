@@ -40,4 +40,65 @@ public class Cell
     {
         this.id = id;
     }
+
+
+    public Integer getX()
+    {
+        return this.x;
+    }
+
+
+    public void setX(Integer x)
+    {
+        this.x = x;
+    }
+
+
+    public Integer getY()
+    {
+        return this.y;
+    }
+
+
+    public void setY(Integer y)
+    {
+        this.y = y;
+    }
+
+
+    public Boolean getOccupied()
+    {
+        return this.occupied;
+    }
+
+
+    public void setOccupied(Boolean occupied)
+    {
+        this.occupied = occupied;
+    }
+
+
+    public Board getBoard()
+    {
+        return this.board;
+    }
+
+
+    public void setBoard(Board board)
+    {
+        this.board = board;
+    }
+
+
+    public Ship getShip()
+    {
+        return this.ship;
+    }
+
+
+    public void setShip(Ship ship)
+    {
+        this.ship = ship;
+    }
+
 }
