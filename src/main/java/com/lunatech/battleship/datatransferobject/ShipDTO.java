@@ -1,4 +1,4 @@
-package com.lunatech.battleship.domainobject;
+package com.lunatech.battleship.datatransferobject;
 
 import java.time.ZonedDateTime;
 import java.util.List;
@@ -10,10 +10,13 @@ import javax.persistence.Id;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.lunatech.battleship.domainobject.Board;
+import com.lunatech.battleship.domainobject.Cell;
+import com.lunatech.battleship.domainobject.ShipType;
 import com.lunatech.battleship.domainvalue.PositionType;
 
 @Entity
-public class Ship
+public class ShipDTO
 {
 
     @Id

@@ -1,4 +1,4 @@
-package com.lunatech.battleship.domainobject;
+package com.lunatech.battleship.datatransferobject;
 
 import java.time.ZonedDateTime;
 
@@ -17,7 +17,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import com.lunatech.battleship.domainvalue.RuleType;
 
 @Entity
-public class Rule
+public class RuleDTO
 {
     @Id
     @GeneratedValue
@@ -44,11 +44,11 @@ public class Rule
     private Integer shots;
 
 
-    public Rule()
+    public RuleDTO()
     {}
 
 
-    public Rule(RuleType ruleType, Boolean extraShotTurn, Boolean extraShotPermanent, Integer shots)
+    public RuleDTO(RuleType ruleType, Boolean extraShotTurn, Boolean extraShotPermanent, Integer shots)
     {
         this.ruleType = ruleType;
         this.extraShotTurn = extraShotTurn;

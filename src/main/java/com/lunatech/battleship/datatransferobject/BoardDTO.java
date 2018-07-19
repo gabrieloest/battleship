@@ -1,4 +1,4 @@
-package com.lunatech.battleship.domainobject;
+package com.lunatech.battleship.datatransferobject;
 
 import java.time.ZonedDateTime;
 import java.util.List;
@@ -10,8 +10,12 @@ import javax.persistence.Id;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.lunatech.battleship.domainobject.Cell;
+import com.lunatech.battleship.domainobject.Player;
+import com.lunatech.battleship.domainobject.Ship;
+
 @Entity
-public class ShipType
+public class BoardDTO
 {
 
     @Id
@@ -23,15 +27,16 @@ public class ShipType
     private ZonedDateTime dateCreated = ZonedDateTime.now();
 
     @Column(nullable = false)
-    private String name;
-
-    @Column(nullable = false)
     private Integer width;
 
     @Column(nullable = false)
     private Integer heigth;
 
+    private Player player;
+
     private List<Cell> cells;
+
+    private List<Ship> ships;
 
 
     public Long getId()
@@ -58,18 +63,6 @@ public class ShipType
     }
 
 
-    public String getName()
-    {
-        return this.name;
-    }
-
-
-    public void setName(String name)
-    {
-        this.name = name;
-    }
-
-
     public Integer getWidth()
     {
         return this.width;
@@ -91,6 +84,42 @@ public class ShipType
     public void setHeigth(Integer heigth)
     {
         this.heigth = heigth;
+    }
+
+
+    public Player getPlayer()
+    {
+        return this.player;
+    }
+
+
+    public void setPlayer(Player player)
+    {
+        this.player = player;
+    }
+
+
+    public List<Cell> getCells()
+    {
+        return this.cells;
+    }
+
+
+    public void setCells(List<Cell> cells)
+    {
+        this.cells = cells;
+    }
+
+
+    public List<Ship> getShips()
+    {
+        return this.ships;
+    }
+
+
+    public void setShips(List<Ship> ships)
+    {
+        this.ships = ships;
     }
 
 }

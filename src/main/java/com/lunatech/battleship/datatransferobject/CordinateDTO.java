@@ -1,4 +1,4 @@
-package com.lunatech.battleship.domainobject;
+package com.lunatech.battleship.datatransferobject;
 
 import java.time.ZonedDateTime;
 
@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-public class Cordinate
+public class CordinateDTO
 {
 
     @Id

@@ -1,4 +1,4 @@
-package com.lunatech.battleship.domainobject;
+package com.lunatech.battleship.datatransferobject;
 
 import java.time.ZonedDateTime;
 
@@ -10,8 +10,11 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.lunatech.battleship.domainobject.Board;
+import com.lunatech.battleship.domainobject.Ship;
+
 @Entity
-public class Cell
+public class CellDTO
 {
 
     @Id

@@ -1,7 +1,6 @@
-package com.lunatech.battleship.domainobject;
+package com.lunatech.battleship.datatransferobject;
 
 import java.time.ZonedDateTime;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,8 +9,11 @@ import javax.persistence.Id;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.lunatech.battleship.domainobject.Player;
+import com.lunatech.battleship.domainobject.Rule;
+
 @Entity
-public class ShipType
+public class GameDTO
 {
 
     @Id
@@ -22,16 +24,13 @@ public class ShipType
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private ZonedDateTime dateCreated = ZonedDateTime.now();
 
-    @Column(nullable = false)
-    private String name;
+    private String gameId;
 
-    @Column(nullable = false)
-    private Integer width;
+    private Rule rule;
 
-    @Column(nullable = false)
-    private Integer heigth;
+    private Player player1;
 
-    private List<Cell> cells;
+    private Player player2;
 
 
     public Long getId()
@@ -58,39 +57,51 @@ public class ShipType
     }
 
 
-    public String getName()
+    public String getGameId()
     {
-        return this.name;
+        return this.gameId;
     }
 
 
-    public void setName(String name)
+    public void setGameId(String gameId)
     {
-        this.name = name;
+        this.gameId = gameId;
     }
 
 
-    public Integer getWidth()
+    public Rule getRule()
     {
-        return this.width;
+        return this.rule;
     }
 
 
-    public void setWidth(Integer width)
+    public void setRule(Rule rule)
     {
-        this.width = width;
+        this.rule = rule;
     }
 
 
-    public Integer getHeigth()
+    public Player getPlayer1()
     {
-        return this.heigth;
+        return this.player1;
     }
 
 
-    public void setHeigth(Integer heigth)
+    public void setPlayer1(Player player1)
     {
-        this.heigth = heigth;
+        this.player1 = player1;
+    }
+
+
+    public Player getPlayer2()
+    {
+        return this.player2;
+    }
+
+
+    public void setPlayer2(Player player2)
+    {
+        this.player2 = player2;
     }
 
 }
