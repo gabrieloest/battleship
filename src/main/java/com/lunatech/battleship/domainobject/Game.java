@@ -1,6 +1,7 @@
 package com.lunatech.battleship.domainobject;
 
 import java.time.ZonedDateTime;
+import java.util.Optional;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.lunatech.battleship.domainvalue.GameStatusType;
 
 @Entity
 public class Game
@@ -28,6 +31,10 @@ public class Game
     private Player player1;
 
     private Player player2;
+
+    private GameStatusType gameStatusType;
+
+    private String statusOwner;
 
 
     public Long getId()
@@ -99,6 +106,41 @@ public class Game
     public void setPlayer2(Player player2)
     {
         this.player2 = player2;
+    }
+
+
+    public GameStatusType getGameStatusType()
+    {
+        return this.gameStatusType;
+    }
+
+
+    public void setGameStatusType(GameStatusType gameStatusType)
+    {
+        this.gameStatusType = gameStatusType;
+    }
+
+
+    public String getStatusOwner()
+    {
+        return this.statusOwner;
+    }
+
+
+    public void setStatusOwner(String statusOwner)
+    {
+        this.statusOwner = statusOwner;
+    }
+
+
+    public Optional<Player> getPlayerByUserId(String userId)
+    {
+        if (this.player1.getUser().getUserId().equals(userId))
+        {
+            return Optional.ofNullable(this.player1);
+        }
+
+        return Optional.ofNullable(this.player2);
     }
 
 }

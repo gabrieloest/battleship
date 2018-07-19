@@ -30,7 +30,7 @@ public class UserMapper
     }
 
 
-    public List<UserDTO> makeUserDTOList(Collection<User> users)
+    public List<UserDTO> convertUserDTOList(Collection<User> users)
     {
         return users
             .stream()

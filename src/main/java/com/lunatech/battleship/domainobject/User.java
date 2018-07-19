@@ -21,6 +21,8 @@ public class User
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private ZonedDateTime dateCreated = ZonedDateTime.now();
 
+    private String userId;
+
 
     public Long getId()
     {
@@ -43,5 +45,17 @@ public class User
     public void setDateCreated(ZonedDateTime dateCreated)
     {
         this.dateCreated = dateCreated;
+    }
+
+
+    public String getUserId()
+    {
+        return this.userId;
+    }
+
+
+    public void setUserId(String userId)
+    {
+        this.userId = userId;
     }
 }

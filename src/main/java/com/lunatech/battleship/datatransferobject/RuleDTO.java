@@ -1,44 +1,26 @@
 package com.lunatech.battleship.datatransferobject;
 
-import java.time.ZonedDateTime;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lunatech.battleship.domainvalue.RuleType;
 
-@Entity
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class RuleDTO
 {
-    @Id
-    @GeneratedValue
+    @JsonIgnore
     private Long id;
 
-    @Column(nullable = false)
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private ZonedDateTime dateCreated = ZonedDateTime.now();
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
     private RuleType ruleType;
 
-    @Column(nullable = false)
     private Boolean extraShotTurn = false;
 
-    @Column(nullable = false)
     private Boolean extraShotPermanent = false;
 
     @NotNull(message = "The number of shots must be specified!")
-    @Column(nullable = false)
     @Min(value = 1, message = "The minimum number of shots is 1")
     @Max(value = 10, message = "The maximum number of shots is 10")
     private Integer shots;
@@ -66,18 +48,6 @@ public class RuleDTO
     public void setId(Long id)
     {
         this.id = id;
-    }
-
-
-    public ZonedDateTime getDateCreated()
-    {
-        return this.dateCreated;
-    }
-
-
-    public void setDateCreated(ZonedDateTime dateCreated)
-    {
-        this.dateCreated = dateCreated;
     }
 
 

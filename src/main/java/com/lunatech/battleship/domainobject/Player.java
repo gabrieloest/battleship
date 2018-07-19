@@ -21,11 +21,13 @@ public class Player
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private ZonedDateTime dateCreated = ZonedDateTime.now();
 
-    private String userId;
+    private User user;
 
     private String fullname;
 
     private Board board;
+
+    private Board opponentBoard;
 
     private Boolean myTurn;
 
@@ -56,15 +58,15 @@ public class Player
     }
 
 
-    public String getUserId()
+    public User getUser()
     {
-        return this.userId;
+        return this.user;
     }
 
 
-    public void setUserId(String userId)
+    public void setUser(User user)
     {
-        this.userId = userId;
+        this.user = user;
     }
 
 
@@ -89,6 +91,18 @@ public class Player
     public void setBoard(Board board)
     {
         this.board = board;
+    }
+
+
+    public Board getOpponentBoard()
+    {
+        return this.opponentBoard;
+    }
+
+
+    public void setOpponentBoard(Board opponentBoard)
+    {
+        this.opponentBoard = opponentBoard;
     }
 
 

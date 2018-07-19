@@ -5,4 +5,6 @@ import com.lunatech.battleship.domainobject.Rule;
 public interface RuleService extends CRUDService<Rule>
 {
 
+    Rule findByName(String rules);
+
 }

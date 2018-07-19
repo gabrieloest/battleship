@@ -88,4 +88,21 @@ public class GameServiceImpl implements GameService
         return this.gameRepository.findById(gameId).orElseThrow(() -> new EntityNotFoundException("Could not find Game entity with id: " + gameId));
     }
 
+
+    @Override
+    public Game findByGameId(String gameId) throws EntityNotFoundException
+    {
+        return this.gameRepository.findByGameId(gameId).orElseThrow(() -> new EntityNotFoundException("Could not find Game entity with gameId: " + gameId));
+    }
+
+
+    @Override
+    public void updateUserAutoPilot(String gameId, String userId) throws EntityNotFoundException, ConstraintsViolationException
+    {
+        Game game = findByGameId(gameId);
+        game.getPlayerByUserId(userId).orElseThrow(() -> new EntityNotFoundException("Could not find authenticated User in this game: " + gameId)).setAutoPilot(true);;
+        update(game);
+
+    }
+
 }

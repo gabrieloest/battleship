@@ -3,17 +3,16 @@ package com.lunatech.battleship.datatransferobject;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class NewGameResponseDTO
+public class ChallengeRequestDTO
 {
 
     private String userId;
     private String fullName;
-    private String gameId;
-    private String starting;
+    private String protocol;
     private String rules;
 
 
-    public NewGameResponseDTO()
+    public ChallengeRequestDTO()
     {}
 
 
@@ -41,27 +40,15 @@ public class NewGameResponseDTO
     }
 
 
-    public String getGameId()
+    public String getProtocol()
     {
-        return this.gameId;
+        return this.protocol;
     }
 
 
-    public void setGameId(String gameId)
+    public void setProtocol(String protocol)
     {
-        this.gameId = gameId;
-    }
-
-
-    public String getStarting()
-    {
-        return this.starting;
-    }
-
-
-    public void setStarting(String starting)
-    {
-        this.starting = starting;
+        this.protocol = protocol;
     }
 
 

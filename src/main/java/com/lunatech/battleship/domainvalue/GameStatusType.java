@@ -1,14 +1,14 @@
 package com.lunatech.battleship.domainvalue;
 
-public enum RuleType
+public enum GameStatusType
 {
 
-    STANDARD("standard"), SUPER_CHARGE("super_charge"), DESPERATION("desperation"), X_SHOT("x_shot");
+    WINNER("winner"), PLAYER_TURN("player_turn");
 
     private String description;
 
 
-    RuleType(String description)
+    GameStatusType(String description)
     {
         this.description = description;
     }
@@ -20,9 +20,9 @@ public enum RuleType
     }
 
 
-    RuleType getValue(String value)
+    GameStatusType getValue(String value)
     {
-        for (RuleType e : RuleType.values())
+        for (GameStatusType e : GameStatusType.values())
         {
             if (e.description.equals(value))
             {

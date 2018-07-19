@@ -1,39 +1,25 @@
 package com.lunatech.battleship.datatransferobject;
 
-import java.time.ZonedDateTime;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lunatech.battleship.domainobject.Board;
 import com.lunatech.battleship.domainobject.Ship;
 
-@Entity
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class CellDTO
 {
 
-    @Id
-    @GeneratedValue
+    @JsonIgnore
     private Long id;
 
-    @Column(nullable = false)
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private ZonedDateTime dateCreated = ZonedDateTime.now();
-
-    @Column(nullable = false)
     @NotNull(message = "The X value must be specified!")
     private Integer x;
 
-    @Column(nullable = false)
     @NotNull(message = "The Y value must be specified!")
     private Integer y;
 
-    @Column(nullable = false)
     private Boolean occupied = false;
 
     private Board board;
@@ -50,18 +36,6 @@ public class CellDTO
     public void setId(Long id)
     {
         this.id = id;
-    }
-
-
-    public ZonedDateTime getDateCreated()
-    {
-        return this.dateCreated;
-    }
-
-
-    public void setDateCreated(ZonedDateTime dateCreated)
-    {
-        this.dateCreated = dateCreated;
     }
 
 

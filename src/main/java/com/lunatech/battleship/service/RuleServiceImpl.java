@@ -11,6 +11,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.lunatech.battleship.domainobject.Rule;
+import com.lunatech.battleship.domainvalue.RuleType;
 import com.lunatech.battleship.exception.ConstraintsViolationException;
 import com.lunatech.battleship.exception.EntityNotFoundException;
 import com.lunatech.battleship.repository.RuleRepository;
@@ -86,6 +87,13 @@ public class RuleServiceImpl implements RuleService
     private Rule findRuleById(Long ruleId) throws EntityNotFoundException
     {
         return this.ruleRepository.findById(ruleId).orElseThrow(() -> new EntityNotFoundException("Could not find Rule entity with id: " + ruleId));
+    }
+
+
+    @Override
+    public Rule findByName(String rules)
+    {
+        return this.ruleRepository.findByRule(RuleType.valueOf(rules));
     }
 
 }

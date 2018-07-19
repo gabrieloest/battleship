@@ -1,25 +1,16 @@
 package com.lunatech.battleship.datatransferobject;
 
-import java.time.ZonedDateTime;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
-@Entity
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserDTO
 {
 
-    @Id
-    @GeneratedValue
+    @JsonIgnore
     private Long id;
 
-    @Column(nullable = false)
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private ZonedDateTime dateCreated = ZonedDateTime.now();
+    private String userId;
 
 
     public Long getId()
@@ -34,14 +25,15 @@ public class UserDTO
     }
 
 
-    public ZonedDateTime getDateCreated()
+    public String getUserId()
     {
-        return this.dateCreated;
+        return this.userId;
     }
 
 
-    public void setDateCreated(ZonedDateTime dateCreated)
+    public void setUserId(String userId)
     {
-        this.dateCreated = dateCreated;
+        this.userId = userId;
     }
+
 }
